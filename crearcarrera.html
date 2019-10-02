@@ -3,7 +3,7 @@
 
 <head>
 	<!-- Titulo de la pagina -->
-	<title>Saddle Up</title>
+	<title>Saddle Up - Crear Carrera</title>
 	<!-- Importar el estilo visual de Bootstrap, una libreria con estilos prearmados -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<!-- Importar JQuery, una libreria que facilita el manejo de la página y es necesario para la funcionalidad de bootstrap -->
@@ -18,9 +18,21 @@
 	<!-- En el body va el contenido de la página -->
 	<div class="container">
 		<div class="text-center">
-			<h1>Saddle Up</h1>
+			<h1>Crear Carrera</h1>
 
-			<a class="btn btn-primary" href="crearcarrera.html">Crear Carrera</a>
+			<!-- Selector de fecha -->
+			<br>
+			<label>Hora:</label><input type="text" name="time">
+
+			<!-- Selector de lugar -->
+			<br>
+			<label>Lugar:</label><input type="text" name="place">
+
+			<br><br>
+			<a class="btn btn-success disabled">Crear</a>
+
+			<br><br>
+			<a class="btn btn-danger" href="index.html">Volver</a>
 		</div>
 	</div>
 
