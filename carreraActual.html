@@ -3,7 +3,7 @@
 
 <head>
 	<!-- Titulo de la pagina -->
-	<title>Saddle Up</title>
+	<title>Saddle Up - Crear Carrera</title>
 	<!-- Importar el estilo visual de Bootstrap, una libreria con estilos prearmados -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<!-- Importar JQuery, una libreria que facilita el manejo de la página y es necesario para la funcionalidad de bootstrap -->
@@ -18,16 +18,30 @@
 	<!-- En el body va el contenido de la página -->
 	<div class="container">
 		<div class="text-center">
-			<h1>Saddle Up</h1>
+			<h1>Carrera Actual</h1>
 
-			<a class="btn btn-primary" href="carreraActual.html">Carrera Actual</a>
+			<h2>Fecha: <span id="display-fecha">...</span></h2>
+			<h2>Hora: <span id="display-hora">...</span></h2>
+			<h2>Lugar: <span id="display-lugar">...</span></h2>
+
+			<br>
+            <a id="boton-llegada" class="btn btn-success enabled">Llegué</a>
+            
 			<br><br>
-			<a class="btn btn-primary" href="crearCarrera.html">Crear Carrera</a>
+			<a id="boton-abandonar" href="index.html" class="btn btn-danger enabled">Abandonar</a>
+
+			<br><br>
+			<a class="btn btn-primary" href="index.html">Volver</a>
+
 		</div>
 	</div>
 
 	<!-- Una vez que se carga todo el contenido, importar nuestro archivo de javascript para agregar nuestra funcionalidad -->
-	<script src="scriptPrincipal.js"></script>
+	<script src="scriptCarreraActual.js">
+		
+	</script>
+	
 </body>
+
 
 </html>
