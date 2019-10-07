@@ -22,22 +22,26 @@
 
 			<!-- Selector de fecha -->
 			<br>
-			<label>Hora:</label><input type="text" name="time">
-
+			<label>Fecha:</label><input id="labelFecha" type="date" name="date">
+			<br>
+			<label>Hora:</label><input id="labelHora" type="time" name="time">
 			<!-- Selector de lugar -->
 			<br>
-			<label>Lugar:</label><input type="text" name="place">
+			<label>Lugar: </label><input id= "labelLugar" type="text" name="place">
 
 			<br><br>
 			<a id="boton-crear" class="btn btn-success">Crear</a>
 
 			<br><br>
-			<a class="btn btn-danger" href="index.html">Volver</a>
+			<a class="btn btn-primary" href="index.html">Volver</a>
 		</div>
 	</div>
 
 	<!-- Una vez que se carga todo el contenido, importar nuestro archivo de javascript para agregar nuestra funcionalidad -->
-	<script src="script.js"></script>
+	<script src="scriptCrearCarrera.js">
+		
+	</script>
+	
 </body>
 
 </html>
