@@ -8,4 +8,11 @@ $(document).ready(function(){
     $("#display-fecha").html(decodeURIComponent(Cookies.get('fecha')))
     $("#display-hora").html(decodeURIComponent(Cookies.get('hora')))
     $("#display-lugar").html(decodeURIComponent(Cookies.get('lugar')))
+    $("#boton-llegada").click(function(){
+    	var horaEvento=moment(Cookies.get('hora'), "hh:mm");
+    	var hora2=moment();
+    	var diferencia=hora2.diff(horaEvento,"minutes");
+    	console.log(diferencia/60);
+    	alert("Llegaste!\nDiferencia en horas: "+ diferencia/60 + " h");
+    })
 });
