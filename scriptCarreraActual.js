@@ -21,7 +21,6 @@ $(document).ready(function(){
         var hours = moment().format("HH");
         var minutes = moment().format("mm");
         var y = moment(year + "-" + month + "-" + day + "T" + hours + ":" + minutes);
-        console.log(y);
 
         //consigo los valores en horas, minutos, segundos y milisegundos, los paso a valores
         //absolutos (positivos) y a formato adecuado. Ejemplo: si tengo -75 minutos en
