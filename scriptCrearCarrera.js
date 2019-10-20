@@ -22,6 +22,7 @@ $(document).ready(function(){
 	var time = new Date();
 	var hh = time.getHours();
 	var mm = time.getMinutes();
+	time = hh + ':' + mm;
 	document.getElementById('labelHora').setAttribute("min", time);
 });
 
