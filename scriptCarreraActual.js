@@ -12,7 +12,7 @@ $(document).ready(function(){
         var x=moment(Cookies.get('fecha')+"T"+Cookies.get('hora'));
         
         //proxima línea --> testeo local sin cookies
-        //var x = moment("2019-10-20"+"T"+"03:04");
+        //var x = moment("2019-10-20"+"T"+"04:00");
 
         //paso la fecha actual al mismo formato que la fecha del evento
         var year = moment().format("YYYY");
