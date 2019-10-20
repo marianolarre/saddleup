@@ -3,27 +3,19 @@ $(document).ready(function(){
     $("#boton-crear").click(leerInputs)
 //    $("#horaIndicada").val($("#labelHora").val())
 //    $("#lugarIndicado").val($("#labelLugar").val())
-	var today = new Date();
-	var dd = today.getDate();
-	var mm = today.getMonth()+1; //January is 0!
-	var yyyy = today.getFullYear();
-	if(dd<10){
-    	    dd='0'+dd
-   		} 
-  		if(mm<10){
-        mm='0'+mm
-    	} 
 
-	today = yyyy+'-'+mm+'-'+dd;
+	//seteo el campo Fecha con la fecha de hoy
+	var year = moment().format("YYYY");
+    var month = moment().format("MM");
+	var day = moment().format("DD");
+	var today = year+'-'+month+'-'+day;
 	document.getElementById('labelFecha').setAttribute("min", today);
-	
-	//COMPLETAR TIEMPO MINIMO
-	//agregar atributo "min" en el HTML
-	var time = new Date();
-	var hh = time.getHours();
-	var mm = time.getMinutes();
-	time = hh + ':' + mm;
-	document.getElementById('labelHora').setAttribute("min", time);
+
+	//seteo el campo Hora con la hora de hoy (solo toma la hora, no considera los minutos)
+	var hours = moment().format("HH");
+    var minutes = moment().format("mm");
+    var horario = (hours + ":" + minutes);
+	document.getElementById('labelHora').setAttribute("min", horario);
 });
 
 function leerInputs() {
