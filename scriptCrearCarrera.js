@@ -16,14 +16,13 @@ $(document).ready(function(){
 
 	today = yyyy+'-'+mm+'-'+dd;
 	document.getElementById('labelFecha').setAttribute("min", today);
-	/*
+	
 	//COMPLETAR TIEMPO MINIMO
 	//agregar atributo "min" en el HTML
 	var time = new Date();
 	var hh = time.getHours();
 	var mm = time.getMinutes();
 	document.getElementById('labelHora').setAttribute("min", time);
-	*/
 });
 
 function leerInputs() {
