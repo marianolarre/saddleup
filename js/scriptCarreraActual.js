@@ -87,16 +87,16 @@ function recompensar(x, y, limite){
         }
         else{
             if(y.diff(x,"minutes")<0){
-                gananciaDinero = 100+((diffMinutes/limite)*100);
+                ganancia = parseInt(100+((diffMinutes/limite)*100),10);
                 dineroActual += ganancia;
                 Cookies.set('dinero', dineroActual);
-                alert("Recompensa de $"+ gananciaDinero + " por llegar temprano");
+                alert("Recompensa de $"+ ganancia + " por llegar temprano");
                 recompensaTempranoActual += 1;
                 Cookies.set('recompensaTemprano', recompensaTempranoActual)
                 premiar();
             }
             else{
-                ganancia = 100-((diffMinutes/limite)*100);
+                ganancia = parseInt(100-((diffMinutes/limite)*100),10);
                 dineroActual += ganancia;
                 Cookies.set('dinero', dineroActual);
                 alert("Recompensa de $"+ ganancia + " por llegar tarde");
