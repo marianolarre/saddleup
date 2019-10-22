@@ -89,8 +89,9 @@ function recompensar(x, y, limite){
     if(diffHours == 0 && diffMinutes<limite){
         if(diffMinutes == 0)
         {
-        alert("Recompensa por llegar perfectamente a tiempo");
         dineroActual += 100;
+        Cookies.set('dinero', dineroActual);
+        alert("Recompensa de $"+ ganancia + " por llegar perfectamente a tiempo");
         }
         else{
             if(y.diff(x,"minutes")<0){
