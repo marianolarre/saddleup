@@ -83,7 +83,7 @@ function recompensar(x, y, limite){
         {
         dineroActual += 100;
         Cookies.set('dinero', dineroActual);
-        alert("Recompensa de $"+ ganancia + " por llegar perfectamente a tiempo");
+        alert("Recompensa de $"+ 100 + " por llegar perfectamente a tiempo");
         }
         else{
             if(y.diff(x,"minutes")<0){
