@@ -12,6 +12,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<!-- Importar js.cookie, una libreria para facilitar el manejo de cookies -->
 	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+	<style>
+		#img-caballo {
+			display: none;
+		}
+	</style>
 </head>
 
 <body>
@@ -20,11 +26,13 @@
 		<div class="text-center">
 			<h1>Tienda</h1>
 
-			<img id="caballo" src="img/Caballo_Gris.png">
+			<img id="img-caballo" src="img/Caballo_Rojo.png"> <!-- Esta imagen esta invisible. La necesito solo para tener la imagen disponible para dibujarla en el canvas -->
+			<canvas id="caballo" width="300" height="300"></canvas>
 
 			<div id="container-botones"></div>
+
+			<h3>Tu dinero: $<span id="display-dinero">...</span></h3>
 			
-			<br><br>
 			<a id="boton-comprar" class="btn btn-success">Comprar</a>
 
 			<br><br>
@@ -33,9 +41,8 @@
 	</div>
 
 	<!-- Una vez que se carga todo el contenido, importar nuestro archivo de javascript para agregar nuestra funcionalidad -->
-	<script src="js/scriptCrearTienda.js">
-		
-	</script>
+	<script src="js/scriptPintarCaballo.js"></script>
+	<script src="js/scriptTienda.js"></script>
 	
 </body>
 

@@ -20,13 +20,6 @@ $(document).ready(function(){
         var limite = 30;
         calcularTiempoLlegada(fechaHoraEvento, fechaHoraActual, limite);
         recompensar(fechaHoraEvento, fechaHoraActual, limite);
-        
-        
-        //Recompensas
-        //Pasar las siguientes 2 lineas a la funcion de recompensa
-        //var limiteRecompensa = limite;
-        //var recompensa = 100;
-        
     })
 });
 
@@ -44,38 +37,36 @@ function formatearFechaHoraActual(){
 }
 
 function calcularTiempoLlegada(x, y, limite){
-        //consigo los valores en horas, minutos, segundos y milisegundos, los paso a valores
-        //absolutos (positivos) y a formato adecuado. Ejemplo: si tengo -75 minutos en
-        //realidad tengo 1 hora y 15 minutos de anticipación
-        var diffHours=Math.abs(y.diff(x,"hours"));
-        var diffMinutes=Math.abs(y.diff(x,"minutes"));
-        while(diffMinutes>60){
-            diffMinutes-=60;
-        }
-        var tiempo = "demora";
-        
-        if(diffHours == 0 && diffMinutes<limite){
-            if(diffMinutes == 0)
-            {
-            alert("Llegaste perfectamente a tiempo");
-            }
-            else{
-                if(y.diff(x,"minutes")<0){
-                    tiempo="anticipación";
-                    //recompensa por anticipación
-                }
-                alert("Llegaste con una " + tiempo + " de " + diffMinutes + " min.");
-                //recompensa por demora
-            }
+    //consigo los valores en horas, minutos, segundos y milisegundos, los paso a valores
+    //absolutos (positivos) y a formato adecuado. Ejemplo: si tengo -75 minutos en
+    //realidad tengo 1 hora y 15 minutos de anticipación
+    var diffHours=Math.abs(y.diff(x,"hours"));
+    var diffMinutes=Math.abs(y.diff(x,"minutes"));
+    while(diffMinutes>60){
+        diffMinutes-=60;
+    }
+    var tiempo = "demora";
+    
+    if(diffHours == 0 && diffMinutes<limite){
+        if(diffMinutes == 0)
+        {
+        alert("Llegaste perfectamente a tiempo");
         }
         else{
             if(y.diff(x,"minutes")<0){
-                alert("Es muy temprano");
+                tiempo="anticipación";
             }
-            else{
-                alert("Es muy tarde");
-            }
+            alert("Llegaste con una " + tiempo + " de " + diffMinutes + " min.");
         }
+    }
+    else{
+        if(y.diff(x,"minutes")<0){
+            alert("Es muy temprano");
+        }
+        else{
+            alert("Es muy tarde");
+        }
+    }
 }
 
 function recompensar(x, y, limite){
@@ -85,6 +76,7 @@ function recompensar(x, y, limite){
         diffMinutes-=60;
     }
     var dineroActual = Cookies.get('dinero');
+    var recompensaTempranoActual = Cookies.get('recompensaTemprano');
     var ganancia = 0;
     if(diffHours == 0 && diffMinutes<limite){
         if(diffMinutes == 0)
@@ -95,10 +87,13 @@ function recompensar(x, y, limite){
         }
         else{
             if(y.diff(x,"minutes")<0){
-                ganancia = 100+((diffMinutes/limite)*100);
+                gananciaDinero = 100+((diffMinutes/limite)*100);
                 dineroActual += ganancia;
                 Cookies.set('dinero', dineroActual);
-                alert("Recompensa de $"+ ganancia + " por llegar temprano");
+                alert("Recompensa de $"+ gananciaDinero + " por llegar temprano");
+                recompensaTempranoActual += 1;
+                Cookies.set('recompensaTemprano', recompensaTempranoActual)
+                premiar(recompensaTempranoActual);
             }
             else{
                 ganancia = 100-((diffMinutes/limite)*100);
@@ -110,5 +105,17 @@ function recompensar(x, y, limite){
     }
     else{
         alert("No hay recompensa");
+    }
+}
+
+function premiar(recompensa){
+    var dineroActual = Cookies.get('dinero');
+    var cantidad = 3
+    var premio = 250;
+    if(recompensa == cantidad){
+        dineroActual += premio;
+        Cookies.set('recompensaTemprano', 0);
+        Cookies.set('dinero',dineroActual);
+        alert("Ganaste un premio de $" + premio + " por llegar " + cantidad + " veces temprano!")
     }
 }
