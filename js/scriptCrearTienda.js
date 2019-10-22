@@ -10,8 +10,8 @@ var colores = [
 
 // Con JQuery, todo lo que es inicializacion se hace dentro de este 'ready', que se llama cuando el documento esta listo
 $(document).ready(function(){
+    document.getElementById('display-dinero').textContent = Cookies.get('dinero');
 
-    
     for(var i = 0; i < colores.length; i++) {
            $("#container-botones").append("<button class='boton-color' data-color='"+i+"' style='background-color: "+colores[i]+"'>:)</button>");
     }
