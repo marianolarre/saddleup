@@ -6,7 +6,3 @@ var dinero = 0
 if (Cookies.get('dinero') == null) {
 	Cookies.set('dinero', 100)
 }
-
-if (Cookies.get('recompensaTemprano') == null) {
-	Cookies.set('recompensaTemprano', 0)
-}

@@ -10,7 +10,6 @@ var colores = [
 
 // Con JQuery, todo lo que es inicializacion se hace dentro de este 'ready', que se llama cuando el documento esta listo
 $(document).ready(function(){
-    $("#display-dinero").html(decodeURIComponent(Cookies.get('dinero')))
 
     
     for(var i = 0; i < colores.length; i++) {
