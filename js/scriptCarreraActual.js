@@ -10,7 +10,7 @@ $(document).ready(function(){
     $("#display-lugar").html(decodeURIComponent(Cookies.get('lugar')))
     $("#boton-llegada").click(function(){
         //proxima línea --> testeo local sin cookies
-        //var fechaHoraEvento = moment("2019-10-22"+"T"+"05:00");
+        //var fechaHoraEvento = moment("2019-10-22"+"T"+"15:20");
 
         //paso la fecha del evento al formato de moment.js (creo un objeto moment)
         var fechaHoraEvento = formatearFechaHoraEvento();
@@ -75,8 +75,8 @@ function recompensar(x, y, limite){
     while(diffMinutes>60){
         diffMinutes-=60;
     }
-    var dineroActual = Cookies.get('dinero');
-    var recompensaTempranoActual = Cookies.get('recompensaTemprano');
+    var dineroActual = parseInt(Cookies.get('dinero'),10);
+    var recompensaTempranoActual = parseInt(Cookies.get('recompensaTemprano'),10);
     var ganancia = 0;
     if(diffHours == 0 && diffMinutes<limite){
         if(diffMinutes == 0)
@@ -93,7 +93,7 @@ function recompensar(x, y, limite){
                 alert("Recompensa de $"+ gananciaDinero + " por llegar temprano");
                 recompensaTempranoActual += 1;
                 Cookies.set('recompensaTemprano', recompensaTempranoActual)
-                premiar(recompensaTempranoActual);
+                premiar();
             }
             else{
                 ganancia = 100-((diffMinutes/limite)*100);
@@ -108,11 +108,12 @@ function recompensar(x, y, limite){
     }
 }
 
-function premiar(recompensa){
-    var dineroActual = Cookies.get('dinero');
+function premiar(){
+    var dineroActual = parseInt(Cookies.get('dinero'),10);
+    var recompensaTempranoActual = parseInt(Cookies.get('recompensaTemprano'),10);
     var cantidad = 3
     var premio = 250;
-    if(recompensa == cantidad){
+    if(recompensaTempranoActual == cantidad){
         dineroActual += premio;
         Cookies.set('recompensaTemprano', 0);
         Cookies.set('dinero',dineroActual);

@@ -4,6 +4,9 @@ let img
 
 // Con JQuery, todo lo que es inicializacion se hace dentro de este 'ready', que se llama cuando el documento esta listo
 $(document).ready(function(){
+    //pintarCaballo(Cookies.get("color"));
+    document.getElementById('display-dinero').textContent = Cookies.get('dinero');
+
     canvas = document.getElementById('caballo')
     ctx = canvas.getContext('2d')
     img = document.getElementById('img-caballo')
@@ -17,8 +20,6 @@ $(document).ready(function(){
 	$(".boton-color").click(seleccionarColor);
 
     pintarCaballo(1);
-	//pintarCaballo(Cookies.get("color"));
-    document.getElementById('display-dinero').textContent = Cookies.get('dinero');
 });
 
 function seleccionarColor() {
