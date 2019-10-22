@@ -1,32 +1,46 @@
 // Con JQuery, todo lo que es inicializacion se hace dentro de este 'ready', que se llama cuando el documento esta listo
 $(document).ready(function(){
 	//Seteo la fecha y hora del evento por defecto para evitar controlar que la gente llene los campos, solo tendran que corregirlos
-	var hoursDefault = moment().format("HH");
-    var minutesDefault = moment().format("mm");
-    var horarioDefault = (hoursDefault + ":" + minutesDefault);
-	document.getElementById('labelHora').setAttribute("value", horarioDefault);
-	var yearDefault = moment().format("YYYY");
-    var monthDefault = moment().format("MM");
-	var dayDefault = moment().format("DD");
-	var todayDefault = yearDefault+'-'+monthDefault+'-'+dayDefault;
-	document.getElementById('labelFecha').setAttribute("value", todayDefault);
+	document.getElementById('labelHora').setAttribute("value", horarioDefaultValue());
+	document.getElementById('labelFecha').setAttribute("value", todayDefaultValue());
+    //seteo el campo Fecha y el campo Hora con la fecha y hora de hoy (la función horaMinima por algun motivo solo restringe la hora, setea los minutos pero no restringe los minutos de la hora actual)
+    document.getElementById('labelFecha').setAttribute("min", fechaMinima());
+    document.getElementById('labelHora').setAttribute("min", horaMinima());
     $("#boton-crear").click(leerInputs)
 //    $("#horaIndicada").val($("#labelHora").val())
 //    $("#lugarIndicado").val($("#labelLugar").val())
 
-	//seteo el campo Fecha con la fecha de hoy
-	var year = moment().format("YYYY");
-    var month = moment().format("MM");
-	var day = moment().format("DD");
-	var today = year+'-'+month+'-'+day;
-	document.getElementById('labelFecha').setAttribute("min", today);
+});
 
-	//seteo el campo Hora con la hora de hoy (solo toma la hora, no considera los minutos)
-	var hours = moment().format("HH");
+function horarioDefaultValue(){
+    var hoursDefault = moment().format("HH");
+    var minutesDefault = moment().format("mm");
+    var horarioDefault = (hoursDefault + ":" + minutesDefault);
+    return horarioDefault;
+}
+
+function todayDefaultValue(){
+    var yearDefault = moment().format("YYYY");
+    var monthDefault = moment().format("MM");
+    var dayDefault = moment().format("DD");
+    var todayDefault = yearDefault+'-'+monthDefault+'-'+dayDefault;
+    return todayDefault;
+}
+
+function fechaMinima(){
+    var year = moment().format("YYYY");
+    var month = moment().format("MM");
+    var day = moment().format("DD");
+    var today = year+'-'+month+'-'+day;
+    return today;
+}
+
+function horaMinima(){
+    var hours = moment().format("HH");
     var minutes = moment().format("mm");
     var horario = (hours + ":" + minutes);
-	document.getElementById('labelHora').setAttribute("min", horario);
-});
+    return horario;
+}
 
 function leerInputs() {
     var valorLugar = $("#labelLugar").val()
@@ -41,7 +55,6 @@ function leerInputs() {
     else{
     	alert("La hora ingresada no puede ser menor o igual a la hora actual");
     }
-    
 }
 
 function corregirMinutos() {

@@ -9,19 +9,37 @@ $(document).ready(function(){
     $("#display-hora").html(decodeURIComponent(Cookies.get('hora')))
     $("#display-lugar").html(decodeURIComponent(Cookies.get('lugar')))
     $("#boton-llegada").click(function(){
-        var x=moment(Cookies.get('fecha')+"T"+Cookies.get('hora'));
-        
         //proxima línea --> testeo local sin cookies
-        //var x = moment("2019-10-20"+"T"+"04:00");
+        //var fechaHoraEvento = moment("2019-10-22"+"T"+"05:00");
 
+        //paso la fecha del evento al formato de moment.js (creo un objeto moment)
+        var fechaHoraEvento = formatearFechaHoraEvento();
         //paso la fecha actual al mismo formato que la fecha del evento
-        var year = moment().format("YYYY");
-        var month = moment().format("MM");
-        var day = moment().format("DD");
-        var hours = moment().format("HH");
-        var minutes = moment().format("mm");
-        var y = moment(year + "-" + month + "-" + day + "T" + hours + ":" + minutes);
+        var fechaHoraActual = formatearFechaHoraActual();
+        calcularTiempoLlegada(fechaHoraEvento, fechaHoraActual);
 
+        //Recompensas
+        //Pasar las siguientes 2 lineas a la funcion de recompensa
+        var limiteRecompensa = limite;
+        var recompensa = 100;
+        
+    })
+});
+
+function formatearFechaHoraEvento(){
+    return moment(Cookies.get('fecha')+"T"+Cookies.get('hora'));
+}
+
+function formatearFechaHoraActual(){
+    var year = moment().format("YYYY");
+    var month = moment().format("MM");
+    var day = moment().format("DD");
+    var hours = moment().format("HH");
+    var minutes = moment().format("mm");
+    return moment(year + "-" + month + "-" + day + "T" + hours + ":" + minutes);
+}
+
+function calcularTiempoLlegada(x, y){
         //consigo los valores en horas, minutos, segundos y milisegundos, los paso a valores
         //absolutos (positivos) y a formato adecuado. Ejemplo: si tengo -75 minutos en
         //realidad tengo 1 hora y 15 minutos de anticipación
@@ -33,13 +51,9 @@ $(document).ready(function(){
         }
 
         //limite define con cuanto tiempo de anticipación o demora (en minutos) puedo llegar para activar el boton de llegada
-        var limite = 30;
         var tiempo = "demora";
-        var limiteRecompensa = limite;
-        var recompensa = 100;
-
-        //console.log(limiteRecompensa-diffMinutes);
-
+        var limite = 30;
+        
         if(diffHours == 0 && diffMinutes<limite){
             if(diffMinutes == 0)
             {
@@ -62,9 +76,4 @@ $(document).ready(function(){
                 alert("Es muy tarde");
             }
         }
-
-        //Recompensas
-
-        
-    })
-});
+}
