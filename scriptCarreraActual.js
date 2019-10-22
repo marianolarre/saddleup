@@ -20,8 +20,8 @@ $(document).ready(function(){
 
         //Recompensas
         //Pasar las siguientes 2 lineas a la funcion de recompensa
-        var limiteRecompensa = limite;
-        var recompensa = 100;
+        //var limiteRecompensa = limite;
+        //var recompensa = 100;
         
     })
 });
