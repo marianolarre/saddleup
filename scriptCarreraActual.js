@@ -16,8 +16,12 @@ $(document).ready(function(){
         var fechaHoraEvento = formatearFechaHoraEvento();
         //paso la fecha actual al mismo formato que la fecha del evento
         var fechaHoraActual = formatearFechaHoraActual();
-        calcularTiempoLlegada(fechaHoraEvento, fechaHoraActual);
-
+        //Limite de tiempo para demora o anticipación
+        var limite = 30;
+        calcularTiempoLlegada(fechaHoraEvento, fechaHoraActual, limite);
+        recompensar(fechaHoraEvento, fechaHoraActual, limite);
+        
+        
         //Recompensas
         //Pasar las siguientes 2 lineas a la funcion de recompensa
         //var limiteRecompensa = limite;
@@ -39,20 +43,16 @@ function formatearFechaHoraActual(){
     return moment(year + "-" + month + "-" + day + "T" + hours + ":" + minutes);
 }
 
-function calcularTiempoLlegada(x, y){
+function calcularTiempoLlegada(x, y, limite){
         //consigo los valores en horas, minutos, segundos y milisegundos, los paso a valores
         //absolutos (positivos) y a formato adecuado. Ejemplo: si tengo -75 minutos en
         //realidad tengo 1 hora y 15 minutos de anticipación
         var diffHours=Math.abs(y.diff(x,"hours"));
         var diffMinutes=Math.abs(y.diff(x,"minutes"));
-
         while(diffMinutes>60){
             diffMinutes-=60;
         }
-
-        //limite define con cuanto tiempo de anticipación o demora (en minutos) puedo llegar para activar el boton de llegada
         var tiempo = "demora";
-        var limite = 30;
         
         if(diffHours == 0 && diffMinutes<limite){
             if(diffMinutes == 0)
@@ -76,4 +76,38 @@ function calcularTiempoLlegada(x, y){
                 alert("Es muy tarde");
             }
         }
+}
+
+function recompensar(x, y, limite){
+    var diffHours=Math.abs(y.diff(x,"hours"));
+    var diffMinutes=Math.abs(y.diff(x,"minutes"));
+    while(diffMinutes>60){
+        diffMinutes-=60;
+    }
+    var dineroActual = Cookies.get('dinero');
+    var ganancia = 0;
+    if(diffHours == 0 && diffMinutes<limite){
+        if(diffMinutes == 0)
+        {
+        alert("Recompensa por llegar perfectamente a tiempo");
+        dineroActual += 100;
+        }
+        else{
+            if(y.diff(x,"minutes")<0){
+                ganancia = 100+((diffMinutes/limite)*100);
+                dineroActual += ganancia;
+                Cookies.set('dinero', dineroActual);
+                alert("Recompensa de $"+ ganancia + " por llegar temprano");
+            }
+            else{
+                ganancia = 100-((diffMinutes/limite)*100);
+                dineroActual += ganancia;
+                Cookies.set('dinero', dineroActual);
+                alert("Recompensa de $"+ ganancia + " por llegar tarde");
+            }
+        }
+    }
+    else{
+        alert("No hay recompensa");
+    }
 }
