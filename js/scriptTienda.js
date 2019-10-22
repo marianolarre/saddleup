@@ -18,6 +18,7 @@ $(document).ready(function(){
 
     pintarCaballo(1);
 	//pintarCaballo(Cookies.get("color"));
+    document.getElementById('display-dinero').textContent = Cookies.get('dinero');
 });
 
 function seleccionarColor() {
