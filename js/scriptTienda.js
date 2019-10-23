@@ -11,12 +11,12 @@ $(document).ready(function(){
     ctx = canvas.getContext('2d')
     img = document.getElementById('img-caballo')
     img.crossOrigin="anonymous";
-    
+
     for(var i = 0; i < colores.length; i++) {
-           $("#container-botones").append("<button class='boton-color' data-color='"+i+"' style='background-color: "+colores[i].hex+"'>"+colores[i].precio+"</button>");
+           $("#container-botones").append("<button class='boton-color' data-color='"+i+"' style='background-color: "+colores[i]+"'>:)</button>");
     }
 
-	$(".boton-color").click(seleccionarColor);
+    $(".boton-color").click(seleccionarColor);
 
     var color = Cookies.get('color')
     if (color != null) {
@@ -24,19 +24,10 @@ $(document).ready(function(){
     } else {
         pintarCaballo(0);
     }
-	
-	//$(".boton-comprar").click(comprarColor(Cookies.get(dinero)));
 });
 
 function seleccionarColor() {
     var c = $(this).data("color");
     pintarCaballo(c);
     Cookies.set("color", c);
-}
-//function comprarColor(Cookies.get(dinero))){
-//	var f=Cookies.get(dinero));
-//	if(f >= colores.precio){
-		
-//	}
-	
 }
