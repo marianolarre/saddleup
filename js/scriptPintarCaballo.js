@@ -24,9 +24,9 @@ function pintarCaballo(indiceColor) {
 }
 
 function dibujarCaballo(red,green,blue) {
-	 ctx.drawImage(img,0,0) // Dibujo la imagen original al canvas
-    var imgData = ctx.getImageData(10, 10, 50, 50); // Obtengo los datos de la imagen. Es un array con formato r, g, b, a, r, g, b, a, etc
-  	
+	  ctx.drawImage(img,0,0) // Dibujo la imagen original al canvas
+    var imgData = ctx.getImageData(0, 0, 300, 300); // Obtengo los datos de la imagen. Es un array con formato r, g, b, a, r, g, b, a, etc
+  	console.log(imgData);
     for (var index = 0; index < img.width*img.height*4; index+=4) {
 		// If its all red, tint to the color
 		const pixred = imgData.pixels[index]
@@ -44,5 +44,5 @@ function dibujarCaballo(red,green,blue) {
 		}
 	}
 
-  	ctx.putImageData(imgData, 10, 70);
+  	ctx.putImageData(imgData, 0, 0);
 }
