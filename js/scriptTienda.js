@@ -14,6 +14,7 @@ $(document).ready(function(){
 
     for(var i = 0; i < colores.length; i++) {
            $("#container-botones").append("<button class='boton-color' data-color='"+i+"' style='background-color: "+colores[i].hex+"'></button>");
+            document.getElementById('container-botones').textContent= Cookies.get('dinero');
     }
 
     $(".boton-color").click(seleccionarColor);
