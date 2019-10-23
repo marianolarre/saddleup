@@ -24,23 +24,23 @@ function pintarCaballo(indiceColor) {
 }
 
 function dibujarCaballo(red,green,blue) {
-	ctx.drawImage(img,0,0) // Dibujo la imagen original al canvas
+	 ctx.drawImage(img,0,0) // Dibujo la imagen original al canvas
     var imgData = ctx.getImageData(10, 10, 50, 50); // Obtengo los datos de la imagen. Es un array con formato r, g, b, a, r, g, b, a, etc
   	
-    for (var index = 0; index < image.width*image.height*4; index+=4) {
+    for (var index = 0; index < img.width*img.height*4; index+=4) {
 		// If its all red, tint to the color
-		const pixred = image.pixels[index]
-		const pixgreen = image.pixels[index + 1]
-		const pixblue = image.pixels[index + 2]
+		const pixred = imgData.pixels[index]
+		const pixgreen = imgData.pixels[index + 1]
+		const pixblue = imgData.pixels[index + 2]
 
 		if (pixgreen == 0 && pixblue == 0) {
-		   	image.pixels[index] = pixred*red/255;
-		    image.pixels[index + 1] = pixred*green/255;
-		    image.pixels[index + 2] = pixred*blue/255;
+		   	imgData.pixels[index] = pixred*red/255;
+		    imgData.pixels[index + 1] = pixred*green/255;
+		    imgData.pixels[index + 2] = pixred*blue/255;
 		} else if (pixred == 255 && pixgreen == pixblue) {
-			image.pixels[index] = pixred*red/255+pixgreen;
-		    image.pixels[index + 1] = pixred*green/255+pixgreen;
-		    image.pixels[index + 2] = pixred*blue/255+pixgreen;
+			imgData.pixels[index] = pixred*red/255+pixgreen;
+		    imgData.pixels[index + 1] = pixred*green/255+pixgreen;
+		    imgData.pixels[index + 2] = pixred*blue/255+pixgreen;
 		}
 	}
 
