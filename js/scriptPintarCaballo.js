@@ -1,12 +1,44 @@
 var colores = [
-    "#d00000", // rojo
-    "#3f6be1", // azul
-    "#3fc741", // verde
-    "#78c9e1", // celeste
-    "#eaeaea", // blanco
-    "#f2de13", // amarillo
-    "#ee9f27", // naranja
-    "#8b6325"  // marron
+    {
+    	nombre: "Rojo",
+   		hex: "#d00000",
+   		precio: 100
+    },
+    {
+    	nombre: "Azul",
+   		hex: "#3f6be1",
+   		precio: 100
+    },
+    {
+    	nombre: "Verde",
+   		hex: "#3fc741",
+   		precio: 100
+    },
+    {
+    	nombre: "Celeste",
+   		hex: "#78c9e1",
+   		precio: 100
+    },
+    {
+    	nombre: "Blanco",
+   		hex: "#eaeaea",
+   		precio: 100
+    },
+    {
+    	nombre: "Amarillo",
+   		hex: "#f2de13",
+   		precio: 100
+    },
+    {
+    	nombre: "Naranja",
+   		hex: "#ee9f27",
+   		precio: 100
+    },
+    {
+    	nombre: "Marron",
+   		hex: "#8b6325",
+   		precio: 100
+    }
 ]
 
 function hexToRgb(hex) {
@@ -20,12 +52,12 @@ function hexToRgb(hex) {
 
 function pintarCaballo(indiceColor) {
   console.log(indiceColor);
-	var color = hexToRgb(colores[indiceColor])
+	var color = hexToRgb(colores[indiceColor].hex)
   dibujarCaballo(color.r, color.g, color.b)
 }
 
 function dibujarCaballo(red,green,blue) {
-	  ctx.drawImage(img,0,0) // Dibujo la imagen original al canvas
+	ctx.drawImage(img,0,0) // Dibujo la imagen original al canvas
     var imgData = ctx.getImageData(0, 0, 300, 300); // Obtengo los datos de la imagen. Es un array con formato r, g, b, a, r, g, b, a, etc
     for (var index = 0; index < imgData.width*imgData.height*4; index+=4) {
 		// If its all red, tint to the color
@@ -44,5 +76,5 @@ function dibujarCaballo(red,green,blue) {
 		}
 	}
 
-  ctx.putImageData(imgData, 0, 0);
+  	ctx.putImageData(imgData, 0, 0);
 }

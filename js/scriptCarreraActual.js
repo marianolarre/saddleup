@@ -108,6 +108,7 @@ function recompensar(x, y, limite){
     }
 }
 
+// Hacer que la racha no se reinicie, de manera que, por ejemplo, gane el doble a partir de la tercera llegada temprano consecutiva
 function premiar(){
     var dineroActual = parseInt(Cookies.get('dinero'),10);
     var recompensaTempranoActual = parseInt(Cookies.get('recompensaTemprano'),10);
