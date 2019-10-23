@@ -13,7 +13,7 @@ $(document).ready(function(){
     img.crossOrigin="anonymous";
     
     for(var i = 0; i < colores.length; i++) {
-           $("#container-botones").append("<button class='boton-color' data-color='"+i+"' style='background-color: "+colores[i].hex+"'>colores[i].precio</button>");
+           $("#container-botones").append("<button class='boton-color' data-color='"+i+"' style='background-color: "+colores[i].hex+"'>+colores[i].precio+</button>");
     }
 
 	$(".boton-color").click(seleccionarColor);
