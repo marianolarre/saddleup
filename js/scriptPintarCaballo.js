@@ -33,6 +33,10 @@ function dibujarCaballo(red,green,blue) {
 		const pixgreen = imgData.data[index + 1]
 		const pixblue = imgData.data[index + 2]
 
+    if (index%105 == 0) {
+      console.log({pr: pixred, pg: pixgreen, pb: pixblue})
+    }
+
 		if (pixgreen == 0 && pixblue == 0) {
 		   	imgData.data[index] = pixred*red/255;
 		    imgData.data[index + 1] = pixred*green/255;
