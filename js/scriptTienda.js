@@ -11,7 +11,6 @@ $(document).ready(function(){
     ctx = canvas.getContext('2d')
     img = document.getElementById('img-caballo')
     img.crossOrigin="anonymous";
-    console.log(img)
     
     for(var i = 0; i < colores.length; i++) {
            $("#container-botones").append("<button class='boton-color' data-color='"+i+"' style='background-color: "+colores[i]+"'>:)</button>");
@@ -19,7 +18,12 @@ $(document).ready(function(){
 
 	$(".boton-color").click(seleccionarColor);
 
-    pintarCaballo(1);
+    var color = Cookies.get('color')
+    if (color != null) {
+        pintarCaballo(color);
+    } else {
+        pintarCaballo(0);
+    }
 });
 
 function seleccionarColor() {

@@ -12,6 +12,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<!-- Importar js.cookie, una libreria para facilitar el manejo de cookies -->
 	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+	<style>
+		#img-caballo {
+			display: none;
+		}
+	</style>
 </head>
 
 <body>
@@ -20,7 +26,8 @@
 		<div class="text-center">
 			<h1>Saddle Up</h1>
 
-			<img id="Caballo" src="img/Caballo_Gris.png">
+			<img id="img-caballo" src="img/Caballo_Rojo.png"> <!-- Esta imagen esta invisible. La necesito solo para tener la imagen disponible para dibujarla en el canvas -->
+			<canvas id="caballo" width="300" height="300"></canvas>
 			<br><br>
 
 			<a class="btn btn-primary" href="carreraActual.html">Carrera Actual</a>
@@ -34,6 +41,7 @@
 	</div>
 
 	<!-- Una vez que se carga todo el contenido, importar nuestro archivo de javascript para agregar nuestra funcionalidad -->
+	<script src="js/scriptPintarCaballo.js"></script>
 	<script src="js/scriptPrincipal.js"></script>
 </body>
 
