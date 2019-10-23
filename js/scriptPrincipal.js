@@ -1,10 +1,14 @@
 var dinero = 0
 
+let canvas
+let ctx
+let img
+
 // Con JQuery, todo lo que es inicializacion se hace dentro de este 'ready', que se llama cuando el documento esta listo
 $(document).ready(function(){
-    let canvas = document.getElementById('caballo')
-    let ctx = canvas.getContext('2d')
-    let img = document.getElementById('img-caballo')
+    canvas = document.getElementById('caballo')
+    ctx = canvas.getContext('2d')
+    img = document.getElementById('img-caballo')
     img.crossOrigin="anonymous";
    
     var color = Cookies.get('color')
