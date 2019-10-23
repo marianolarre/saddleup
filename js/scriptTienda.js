@@ -13,7 +13,7 @@ $(document).ready(function(){
     img.crossOrigin="anonymous";
     
     for(var i = 0; i < colores.length; i++) {
-           $("#container-botones").append("<button class='boton-color' data-color='"+i+"' style='background-color: "+colores[i].hex+"'>+colores[i].precio+</button>");
+           $("#container-botones").append("<button class='boton-color' data-color='"+i+"' style='background-color: "+colores[i].hex+"'>"+colores[i].precio+"</button>");
     }
 
 	$(".boton-color").click(seleccionarColor);
@@ -24,10 +24,19 @@ $(document).ready(function(){
     } else {
         pintarCaballo(0);
     }
+	
+	//$(".boton-comprar").click(comprarColor(Cookies.get(dinero)));
 });
 
 function seleccionarColor() {
     var c = $(this).data("color");
     pintarCaballo(c);
     Cookies.set("color", c);
+}
+//function comprarColor(Cookies.get(dinero))){
+//	var f=Cookies.get(dinero));
+//	if(f >= colores.precio){
+		
+//	}
+	
 }
