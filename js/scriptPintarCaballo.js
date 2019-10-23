@@ -24,6 +24,7 @@ function pintarCaballo(indiceColor) {
 }
 
 function dibujarCaballo(red,green,blue) {
+    console.log({r: red, g: green, b: blue});
 	  ctx.drawImage(img,0,0) // Dibujo la imagen original al canvas
     var imgData = ctx.getImageData(0, 0, 300, 300); // Obtengo los datos de la imagen. Es un array con formato r, g, b, a, r, g, b, a, etc
     for (var index = 0; index < imgData.width*imgData.height*4; index+=4) {
@@ -43,5 +44,5 @@ function dibujarCaballo(red,green,blue) {
 		}
 	}
 
-  	ctx.putImageData(imgData, 0, 0);
+  ctx.putImageData(imgData, 0, 0);
 }
