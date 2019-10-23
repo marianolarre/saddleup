@@ -19,8 +19,9 @@ function hexToRgb(hex) {
 }
 
 function pintarCaballo(indiceColor) {
+  console.log(indiceColor);
 	var color = hexToRgb(colores[indiceColor])
-    dibujarCaballo(color.r, color.g, color.b)
+  dibujarCaballo(color.r, color.g, color.b)
 }
 
 function dibujarCaballo(red,green,blue) {
