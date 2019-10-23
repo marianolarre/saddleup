@@ -20,8 +20,13 @@ $(document).ready(function(){
         var limite = 30;
         calcularTiempoLlegada(fechaHoraEvento, fechaHoraActual, limite);
         recompensar(fechaHoraEvento, fechaHoraActual, limite);
+        delete_cookie('lugar');
     })
 });
+
+var delete_cookie = function(name) {
+    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+};
 
 function formatearFechaHoraEvento(){
     return moment(Cookies.get('fecha')+"T"+Cookies.get('hora'));
