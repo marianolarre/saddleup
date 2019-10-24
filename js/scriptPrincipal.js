@@ -17,6 +17,9 @@ $(document).ready(function(){
     } else {
         pintarCaballo(0);
     }
+    if(Cookies.get('fecha') == null){
+        document.getElementById('boton-carrera-actual').setAttribute("class","btn btn-primary disabled");
+    }
 });
 
 // Importante! los cookies solo funcionan online, no local. Si probas esto directamente del archivo en tu computadora, los cookies no se guardan correctamente.
