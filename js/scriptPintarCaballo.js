@@ -2,42 +2,42 @@ var colores = [
     {
     	nombre: "Rojo",
    		hex: "#d00000",
-   		precio: 100
+   		precio: 110
     },
     {
     	nombre: "Azul",
    		hex: "#3f6be1",
-   		precio: 100
+   		precio: 120
     },
     {
     	nombre: "Verde",
    		hex: "#3fc741",
-   		precio: 100
+   		precio: 130
     },
     {
     	nombre: "Celeste",
    		hex: "#78c9e1",
-   		precio: 100
+   		precio: 140
     },
     {
     	nombre: "Blanco",
    		hex: "#eaeaea",
-   		precio: 100
+   		precio: 150
     },
     {
     	nombre: "Amarillo",
    		hex: "#f2de13",
-   		precio: 100
+   		precio: 160
     },
     {
     	nombre: "Naranja",
    		hex: "#ee9f27",
-   		precio: 100
+   		precio: 170
     },
     {
     	nombre: "Marron",
    		hex: "#8b6325",
-   		precio: 100
+   		precio: 180
     }
 ]
 
