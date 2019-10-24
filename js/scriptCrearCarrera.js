@@ -47,13 +47,19 @@ function leerInputs() {
     var valorFecha= $("#labelFecha").val()
     var valorHora= $("#labelHora").val()
     var url = "recibirCarrera.html"
-    if(corregirMinutos() == true){
+    //falta corregir el caso de que cambie de dia o año cuando se esta creando la carrera
+    if(corregirMinutos() == true && $("#labelLugar").val() != ""){
     	var urlConDatos = url+"?fecha="+valorFecha+"&hora="+valorHora + "&lugar=" + valorLugar
     	window.location = urlConDatos;
     	alert("Hora ingresada correctamente");
     }
     else{
-    	alert("La hora ingresada no puede ser menor o igual a la hora actual");
+        if(corregirMinutos() == false){
+            alert("La hora ingresada no puede ser menor o igual a la hora actual");
+        }
+    	else{
+            alert("Debe ingresar un lugar");
+        }
     }
 }
 
@@ -67,6 +73,5 @@ function corregirMinutos() {
     var hours = moment().format("HH");
     var minutes = moment().format("mm");
     var horaActual = moment(year + "-" + month + "-" + day + "T" + hours + ":" + minutes);
-	console.log(horaActual.isBefore(horaEvento));
 	return horaActual.isBefore(horaEvento);
 }
