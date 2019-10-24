@@ -8,23 +8,28 @@ $(document).ready(function(){
     $("#display-fecha").html(decodeURIComponent(Cookies.get('fecha')))
     $("#display-hora").html(decodeURIComponent(Cookies.get('hora')))
     $("#display-lugar").html(decodeURIComponent(Cookies.get('lugar')))
-    $("#boton-llegada").click(function(){
-        //proxima línea --> testeo local sin cookies
-        //var fechaHoraEvento = moment("2019-10-22"+"T"+"15:20");
+    $("#boton-llegada").click(llegar())
+    $("#boton-abandonar").click(eliminarCookies())
 
-        //paso la fecha del evento al formato de moment.js (creo un objeto moment)
-        var fechaHoraEvento = formatearFechaHoraEvento();
-        //paso la fecha actual al mismo formato que la fecha del evento
-        var fechaHoraActual = formatearFechaHoraActual();
-        //Limite de tiempo para demora o anticipación
-        var limite = 30;
-        calcularTiempoLlegada(fechaHoraEvento, fechaHoraActual, limite);
-        recompensar(fechaHoraEvento, fechaHoraActual, limite);
-        terminarCarrera();
-    })
 });
 
-function terminarCarrera(){
+
+function llegar(){
+    //proxima línea --> testeo local sin cookies
+    //var fechaHoraEvento = moment("2019-10-22"+"T"+"15:20");
+
+    //paso la fecha del evento al formato de moment.js (creo un objeto moment)
+    var fechaHoraEvento = formatearFechaHoraEvento();
+    //paso la fecha actual al mismo formato que la fecha del evento
+    var fechaHoraActual = formatearFechaHoraActual();
+    //Limite de tiempo para demora o anticipación
+    var limite = 30;
+    calcularTiempoLlegada(fechaHoraEvento, fechaHoraActual, limite);
+    recompensar(fechaHoraEvento, fechaHoraActual, limite);
+    eliminarCookies();
+}
+
+function eliminarCookies(){
     Cookies.remove('fecha');
     Cookies.remove('hora');
     Cookies.remove('lugar');

@@ -51,7 +51,6 @@ function leerInputs() {
     if(corregirMinutos() == true && $("#labelLugar").val() != ""){
     	var urlConDatos = url+"?fecha="+valorFecha+"&hora="+valorHora + "&lugar=" + valorLugar
     	window.location = urlConDatos;
-    	alert("Hora ingresada correctamente");
     }
     else{
         if(corregirMinutos() == false){
