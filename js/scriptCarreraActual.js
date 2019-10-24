@@ -14,13 +14,17 @@ $(document).ready(function(){
 
     //paso la fecha del evento al formato de moment.js (creo un objeto moment)
     var fechaHoraEvento = formatearFechaHoraEvento();
+    console.log("imprimo fechaHoraEvento:");
+    console.log(fechaHoraEvento);
     //paso la fecha actual al mismo formato que la fecha del evento
     var fechaHoraActual = formatearFechaHoraActual();
+    console.log("imprimo fechaHoraActual:");
+    console.log(fechaHoraActual);
     //Limite de tiempo para demora o anticipación
     var limite = 30;
     calcularTiempoLlegada(fechaHoraEvento, fechaHoraActual, limite);
     recompensar(fechaHoraEvento, fechaHoraActual, limite);
-    eliminarCookies();
+    //eliminarCookies();
 })
     $("#boton-abandonar").click(eliminarCookies())
 
@@ -50,12 +54,16 @@ function calcularTiempoLlegada(x, y, limite){
     //absolutos (positivos) y a formato adecuado. Ejemplo: si tengo -75 minutos en
     //realidad tengo 1 hora y 15 minutos de anticipación
     var diffHours=Math.abs(y.diff(x,"hours"));
+    console.log("diffHours: "+ diffHours);
     var diffMinutes=Math.abs(y.diff(x,"minutes"));
     while(diffMinutes>60){
         diffMinutes-=60;
     }
+    console.log("diffMinutes: " + diffMinutes);
     var tiempo = "demora";
-    
+    console.log("limite: " + limite);
+    console.log("diffHours es menor a 0?");
+    console.log("diffMinutes es menor a limite?")
     if(diffHours == 0 && diffMinutes<limite){
         if(diffMinutes == 0)
         {
