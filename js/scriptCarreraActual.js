@@ -144,7 +144,7 @@ function premiar(){
     	{
     		cantidad: 4,
     		valor: 200
-    	}
+    	},
     	{
     		cantidad: 7,
     		valor: 250
