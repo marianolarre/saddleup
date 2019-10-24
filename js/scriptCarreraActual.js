@@ -164,7 +164,7 @@ function premiar(){
 	        dineroActual += premiosRacha[i].valor;
 	        //Cookies.set('recompensaTemprano', 0);
 	        Cookies.set('dinero',dineroActual);
-	        alert("Ganaste un premio de $" + premio + " por llegar " + cantidad + " veces temprano!")
+	        alert("Ganaste un premio de $" + premiosRacha[i].valor + " por llegar " + premiosRacha[i].cantidad + " veces temprano!")
     	}
     }
     
