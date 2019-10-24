@@ -11,11 +11,8 @@ $(document).ready(function(){
     ctx = canvas.getContext('2d')
     img = document.getElementById('img-caballo')
     img.crossOrigin="anonymous";
-
     for(var i = 0; i < colores.length; i++) {
-         $("#container-botones").append("<button class='boton-color' data-color='"+i+"' style='background-color: "+colores[i].hex+"'>:)</button>");
-         //  $("#container-botones").append("<button class='boton-color' data-color='"+i+"' style='background-color: "+colores[i].hex+"'>"+toString(colores[i].precio)+"</button>");
-         //  document.getElementById('container-botones').textContent= Cookies.get('dinero');
+         $("#container-botones").append("<button class='boton-color' data-color='"+i+"' style='background-color: "+colores[i].hex+"'>"+colores[i].precio+"</button>");
     }
 
     $(".boton-color").click(seleccionarColor);
