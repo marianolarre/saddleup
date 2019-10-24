@@ -26,14 +26,16 @@ $(document).ready(function(){
     recompensar(fechaHoraEvento, fechaHoraActual, limite);
     //eliminarCookies();
 })
-    //$("#boton-abandonar").click(eliminarCookies())
+    $("#boton-abandonar").click(eliminarCookies())
 
 });
 
+//si implemento esto no se eliminan las cookies directamente...
 function eliminarCookies(){
-    Cookies.remove('fecha');
-    Cookies.remove('hora');
-    Cookies.remove('lugar');
+    alert("Entro a abandonar sin hacerle click");
+    //Cookies.remove('fecha');
+    //Cookies.remove('hora');
+    //Cookies.remove('lugar');
 }
 
 function formatearFechaHoraEvento(){
