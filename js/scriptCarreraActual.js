@@ -9,39 +9,35 @@ $(document).ready(function(){
     $("#display-hora").html(decodeURIComponent(Cookies.get('hora')))
     $("#display-lugar").html(decodeURIComponent(Cookies.get('lugar')))
     $("#boton-llegada").click(function(){
-        //proxima línea --> testeo local sin cookies
-    //var fechaHoraEvento = moment("2019-10-22"+"T"+"15:20");
-
-    //paso la fecha del evento al formato de moment.js (creo un objeto moment)
-    var fechaHoraEvento = formatearFechaHoraEvento();
-    console.log("imprimo fechaHoraEvento:");
-    console.log(fechaHoraEvento);
-    //paso la fecha actual al mismo formato que la fecha del evento
-    var fechaHoraActual = formatearFechaHoraActual();
-    console.log("imprimo fechaHoraActual:");
-    console.log(fechaHoraActual);
-    //Limite de tiempo para demora o anticipación
-    var limite = 30;
-    calcularTiempoLlegada(fechaHoraEvento, fechaHoraActual, limite);
-    recompensar(fechaHoraEvento, fechaHoraActual, limite);
-    //eliminarCookies();
-})
+        llegar();
+    })
     $("#boton-abandonar").click(function(){
         eliminarCookies();
     })
 });
 
-//si implemento esto no se eliminan las cookies directamente...
+function llegar(){
+    //proxima línea --> testeo local sin cookies
+    //var fechaHoraEvento = moment("2019-10-22"+"T"+"15:20");
+
+    //paso la fecha del evento al formato de moment.js (creo un objeto moment)
+    var fechaHoraEvento = formatearFechaHoraEvento();
+    //paso la fecha actual al mismo formato que la fecha del evento
+    var fechaHoraActual = formatearFechaHoraActual();
+    //Limite de tiempo para demora o anticipación
+    var limite = 30;
+    calcularTiempoLlegada(fechaHoraEvento, fechaHoraActual, limite);
+    recompensar(fechaHoraEvento, fechaHoraActual, limite);
+    eliminarCookies();
+}
+
 function eliminarCookies(){
-    alert("Entro a abandonar sin hacerle click");
-    //Cookies.remove('fecha');
-    //Cookies.remove('hora');
-    //Cookies.remove('lugar');
+    Cookies.remove('fecha');
+    Cookies.remove('hora');
+    Cookies.remove('lugar');
 }
 
 function formatearFechaHoraEvento(){
-    console.log("fecha del evento: " + Cookies.get('fecha'));
-    console.log("hora del evento: " + Cookies.get('hora'));
     return moment(Cookies.get('fecha')+"T"+Cookies.get('hora'));
 }
 
