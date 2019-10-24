@@ -8,14 +8,8 @@ $(document).ready(function(){
     $("#display-fecha").html(decodeURIComponent(Cookies.get('fecha')))
     $("#display-hora").html(decodeURIComponent(Cookies.get('hora')))
     $("#display-lugar").html(decodeURIComponent(Cookies.get('lugar')))
-    $("#boton-llegada").click(llegar())
-    $("#boton-abandonar").click(eliminarCookies())
-
-});
-
-
-function llegar(){
-    //proxima línea --> testeo local sin cookies
+    $("#boton-llegada").click(function(){
+        //proxima línea --> testeo local sin cookies
     //var fechaHoraEvento = moment("2019-10-22"+"T"+"15:20");
 
     //paso la fecha del evento al formato de moment.js (creo un objeto moment)
@@ -27,7 +21,10 @@ function llegar(){
     calcularTiempoLlegada(fechaHoraEvento, fechaHoraActual, limite);
     recompensar(fechaHoraEvento, fechaHoraActual, limite);
     eliminarCookies();
-}
+    })
+    $("#boton-abandonar").click(eliminarCookies())
+
+});
 
 function eliminarCookies(){
     Cookies.remove('fecha');
