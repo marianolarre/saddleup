@@ -20,14 +20,8 @@ $(document).ready(function(){
         var limite = 30;
         calcularTiempoLlegada(fechaHoraEvento, fechaHoraActual, limite);
         recompensar(fechaHoraEvento, fechaHoraActual, limite);
-        terminarCarrera();
     })
 });
-
-function terminarCarrera(){
-    Cookies.set('fecha', Cookies.get('fecha')+ ";expires=Mon, 01 Jan 2000 01:00:00 UTC;")
-    console.log(Cookies.get('fecha')+ ";expires=Mon, 01 Jan 2000 01:00:00 UTC;")
-}
 
 function formatearFechaHoraEvento(){
     return moment(Cookies.get('fecha')+"T"+Cookies.get('hora'));
