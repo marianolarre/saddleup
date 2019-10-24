@@ -28,7 +28,6 @@ function llegar(){
     var limite = 30;
     calcularTiempoLlegada(fechaHoraEvento, fechaHoraActual, limite);
     recompensar(fechaHoraEvento, fechaHoraActual, limite);
-    eliminarCookies();
 }
 
 function eliminarCookies(){
@@ -69,12 +68,14 @@ function calcularTiempoLlegada(x, y, limite){
         if(diffMinutes == 0)
         {
         alert("Llegaste perfectamente a tiempo");
+        eliminarCookies();
         }
         else{
             if(y.diff(x,"minutes")<0){
                 tiempo="anticipación";
             }
             alert("Llegaste con una " + tiempo + " de " + diffMinutes + " min.");
+            eliminarCookies();
         }
     }
     else{
