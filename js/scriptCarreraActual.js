@@ -103,6 +103,9 @@ function recompensar(x, y, limite){
         dineroActual += 100;
         Cookies.set('dinero', dineroActual);
         alert("Recompensa de $"+ 100 + " por llegar perfectamente a tiempo");
+        recompensaTempranoActual += 1;
+        Cookies.set('recompensaTemprano', recompensaTempranoActual);
+        premiar();
         }
         else{
             if(y.diff(x,"minutes")<0){
@@ -111,13 +114,14 @@ function recompensar(x, y, limite){
                 Cookies.set('dinero', dineroActual);
                 alert("Recompensa de $"+ ganancia + " por llegar temprano");
                 recompensaTempranoActual += 1;
-                Cookies.set('recompensaTemprano', recompensaTempranoActual)
+                Cookies.set('recompensaTemprano', recompensaTempranoActual);
                 premiar();
             }
             else{
                 ganancia = parseInt(100-((diffMinutes/limite)*100),10);
                 dineroActual += ganancia;
                 Cookies.set('dinero', dineroActual);
+                Cookies.set('recompensaTemprano', 0);
                 alert("Recompensa de $"+ ganancia + " por llegar tarde");
             }
         }
@@ -129,14 +133,39 @@ function recompensar(x, y, limite){
 
 // Hacer que la racha no se reinicie, de manera que, por ejemplo, gane el doble a partir de la tercera llegada temprano consecutiva
 function premiar(){
+	//agregar pantalla de "mis datos" que muestre la cantidad de llegadas temprano y recompensas recibidas
     var dineroActual = parseInt(Cookies.get('dinero'),10);
     var recompensaTempranoActual = parseInt(Cookies.get('recompensaTemprano'),10);
-    var cantidad = 3
-    var premio = 250;
-    if(recompensaTempranoActual == cantidad){
-        dineroActual += premio;
-        Cookies.set('recompensaTemprano', 0);
-        Cookies.set('dinero',dineroActual);
-        alert("Ganaste un premio de $" + premio + " por llegar " + cantidad + " veces temprano!")
+    var premiosRacha = [
+    	{
+    		cantidad: 2,
+    		valor: 150
+    	},
+    	{
+    		cantidad: 4,
+    		valor: 200
+    	}
+    	{
+    		cantidad: 7,
+    		valor: 250
+    	},
+    	{
+    		cantidad: 10,
+    		valor: 350
+    	},
+    	{
+    		cantidad: 15,
+    		valor: 500
+    	}
+    ]
+    for(var i = 0; i < premiosRacha.length; i++)
+    {
+    	if(recompensaTempranoActual == premiosRacha[i].cantidad){
+	        dineroActual += premiosRacha[i].valor;
+	        //Cookies.set('recompensaTemprano', 0);
+	        Cookies.set('dinero',dineroActual);
+	        alert("Ganaste un premio de $" + premio + " por llegar " + cantidad + " veces temprano!")
+    	}
     }
+    
 }
