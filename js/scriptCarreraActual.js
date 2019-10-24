@@ -37,6 +37,8 @@ function eliminarCookies(){
 }
 
 function formatearFechaHoraEvento(){
+    console.log("fecha del evento: " + Cookies.get('fecha'));
+    console.log("hora del evento: " + Cookies.get('hora'));
     return moment(Cookies.get('fecha')+"T"+Cookies.get('hora'));
 }
 
