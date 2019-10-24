@@ -20,8 +20,15 @@ $(document).ready(function(){
         var limite = 30;
         calcularTiempoLlegada(fechaHoraEvento, fechaHoraActual, limite);
         recompensar(fechaHoraEvento, fechaHoraActual, limite);
+        terminarCarrera();
     })
 });
+
+function terminarCarrera(){
+    Cookies.remove('fecha');
+    Cookies.remove('hora');
+    Cookies.remove('lugar');
+}
 
 function formatearFechaHoraEvento(){
     return moment(Cookies.get('fecha')+"T"+Cookies.get('hora'));
