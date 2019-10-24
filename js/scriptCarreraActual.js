@@ -26,8 +26,9 @@ $(document).ready(function(){
     recompensar(fechaHoraEvento, fechaHoraActual, limite);
     //eliminarCookies();
 })
-    $("#boton-abandonar").click(eliminarCookies())
-
+    $("#boton-abandonar").click(function(){
+        eliminarCookies();
+    })
 });
 
 //si implemento esto no se eliminan las cookies directamente...
