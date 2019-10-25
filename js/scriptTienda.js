@@ -45,7 +45,13 @@ function comprarColor() {
     Cookies.set('color', c);
     Cookies.set('dinero', dineroActual);
     alert("Compraste el color " + colores[c].nombre);
-    $("#container-botones").append("<button class='boton-color' data-color='"colorSeleccionado"' style='background-color: "+colores[c].hex+"'>usar</button>");
-
     document.getElementById('display-dinero').textContent = Cookies.get('dinero');
+    
+   agregarColor(c);
+}
+
+function agregarColor(c){
+        var color[];
+        color.push(c);
+        
 }
