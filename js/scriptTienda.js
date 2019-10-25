@@ -15,7 +15,10 @@ $(document).ready(function(){
          $("#container-botones").append("<button class='boton-color' data-color='"+i+"' style='background-color: "+colores[i].hex+"'>$"+colores[i].precio+"</button>");
     }
 
-    $(".boton-color").click(seleccionarColor);
+    $(".boton-color").click(function(){
+        seleccionarColor();
+    });
+    //document.getElementById('display-comprar').setAttribute
 
     var color = Cookies.get('color')
     if (color != null) {
@@ -29,4 +32,10 @@ function seleccionarColor() {
     var c = $(this).data("color");
     pintarCaballo(c);
     //Cookies.set("color", c);
+}
+
+function comprarColor(){
+    var c = $(this).data("color");
+    pintarCaballo(c);
+    Cookies.set("color", c);
 }
