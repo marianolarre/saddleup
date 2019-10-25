@@ -16,6 +16,7 @@ $(document).ready(function(){
     }
 
     $(".boton-color").click(seleccionarColor);
+    $(#"boton-comprar").click(comprarColor);
 
     var color = Cookies.get('color')
     if (color != null) {
@@ -34,5 +35,9 @@ function seleccionarColor() {
     else{
         document.getElementById('boton-comprar').setAttribute("class", "btn btn-success disabled")
     }
-    //Cookies.set("color", c);
+}
+
+function comprarColor() {
+    var c = $(."boton-color").data("color");
+    Cookies.set("color", c);
 }
