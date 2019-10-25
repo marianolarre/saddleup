@@ -37,7 +37,7 @@ var colores = [
     {
     	nombre: "Marron",
    		hex: "#8b6325",
-   		precio: 180
+   		precio: 500
     }
 ]
 
