@@ -28,6 +28,7 @@ $(document).ready(function(){
 
 function seleccionarColor() {
     var c = $(this).data("color");
+    Cookies.set('colorSeleccionado', c);
     pintarCaballo(c);
     if(colores[c].precio<=parseInt(Cookies.get('dinero'))){
         document.getElementById('boton-comprar').setAttribute("class", "btn btn-success enabled")
@@ -38,7 +39,9 @@ function seleccionarColor() {
 }
 
 function comprarColor() {
-    var c = $(".boton-color").data("color");
-    console.log($(".boton-color").data("color"))
+    var c = Cookies.get('colorSeleccionado');
+    var dineroActual = Cookies.get('dinero');
+    dineroActual -= colores[c].precio;
     Cookies.set('color', c);
+    Cookies.set('dinero', dineroActual);
 }
