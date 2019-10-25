@@ -29,7 +29,7 @@ $(document).ready(function(){
 });
 
 function seleccionarColor() {
-    var c = $(this).data("color");
+    var c = $(".boton-color").data("color");
     pintarCaballo(c);
     //Cookies.set("color", c);
 }
