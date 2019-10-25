@@ -38,6 +38,6 @@ function seleccionarColor() {
 }
 
 function comprarColor() {
-    var c = $(."boton-color").data("color");
+    var c = $(".boton-color").data("color");
     Cookies.set("color", c);
 }
