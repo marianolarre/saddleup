@@ -28,5 +28,5 @@ $(document).ready(function(){
 function seleccionarColor() {
     var c = $(this).data("color");
     pintarCaballo(c);
-    Cookies.set("color", c);
+    //Cookies.set("color", c);
 }
