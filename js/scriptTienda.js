@@ -46,4 +46,10 @@ function comprarColor() {
     Cookies.set('dinero', dineroActual);
     alert("Compraste el color " + colores[c].nombre);
     document.getElementById('display-dinero').textContent = Cookies.get('dinero');
+    agregarColor(c);
+}
+
+function agregarColor(c){
+        var color[];
+        color.push(c);
 }
