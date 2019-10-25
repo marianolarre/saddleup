@@ -44,4 +44,5 @@ function comprarColor() {
     dineroActual -= colores[c].precio;
     Cookies.set('color', c);
     Cookies.set('dinero', dineroActual);
+    document.getElementById('display-dinero').textContent = Cookies.get('dinero');
 }
