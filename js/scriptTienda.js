@@ -28,7 +28,7 @@ $(document).ready(function(){
 function seleccionarColor() {
     var c = $(this).data("color");
     pintarCaballo(c);
-    if(colores[c].precio<=toInt(Cookies.get('dinero'))){
+    if(colores[c].precio<=parseInt(Cookies.get('dinero'))){
         document.getElementById('boton-comprar').setAttribute("class", "btn btn-success enabled")
     }
     else{
