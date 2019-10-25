@@ -37,12 +37,13 @@ function seleccionarColor() {
         document.getElementById('boton-comprar').setAttribute("class", "btn btn-success disabled")
     }
 }
-
+//falta guardar una lista de los colores comprados para volver a usarlos sin comprarlos
 function comprarColor() {
     var c = Cookies.get('colorSeleccionado');
     var dineroActual = Cookies.get('dinero');
     dineroActual -= colores[c].precio;
     Cookies.set('color', c);
     Cookies.set('dinero', dineroActual);
+    alert("Compraste el color " + colores[c].nombre);
     document.getElementById('display-dinero').textContent = Cookies.get('dinero');
 }
