@@ -16,7 +16,7 @@ $(document).ready(function(){
     }
 
     $(".boton-color").click(seleccionarColor);
-    $(#"boton-comprar").click(comprarColor);
+    $("#boton-comprar").click(comprarColor);
 
     var color = Cookies.get('color')
     if (color != null) {
