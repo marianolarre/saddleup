@@ -16,7 +16,7 @@ function copiarURLCarrera(url){
     // dummy.style.display = 'none'
     document.body.appendChild(dummy);
     //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
-    dummy.value = url;
+    dummy.value = "marianolarre.github.io/saddleup/"+url;
     dummy.select();
     document.execCommand("copy");
     document.body.removeChild(dummy);
