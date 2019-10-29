@@ -34,6 +34,7 @@ function eliminarCookies(){
     Cookies.remove('fecha');
     Cookies.remove('hora');
     Cookies.remove('lugar');
+    Cookies.remove('url');
 }
 
 function formatearFechaHoraEvento(){

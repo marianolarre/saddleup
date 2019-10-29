@@ -50,7 +50,8 @@ function leerInputs() {
     //falta corregir el caso de que cambie de dia o año cuando se esta creando la carrera
     if(corregirMinutos() == true && $("#labelLugar").val() != ""){
     	var urlConDatos = url+"?fecha="+valorFecha+"&hora="+valorHora + "&lugar=" + valorLugar
-    	window.location = urlConDatos;
+        window.location = urlConDatos;
+        Cookies.set('url',urlConDatos);
     }
     else{
         if(corregirMinutos() == false){
