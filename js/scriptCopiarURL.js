@@ -20,5 +20,6 @@ function copiarURLCarrera(url){
     dummy.select();
     document.execCommand("copy");
     document.body.removeChild(dummy);
+    alert("URL de carrera copiada al portapapeles.");
    }
 }
