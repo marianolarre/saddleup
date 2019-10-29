@@ -9,7 +9,16 @@ function copiarURLCarrera(url){
    if(url == null){
        alert("No tienes ninguna carrera para copiar o ha ocurrido un error.");
    }
-   var dummy = $('<input>').val(url).appendTo('body').select()
-   document.execCommand('copy');
-   alert("URL de carrera copiada al portapapeles.");
+   else{
+    var dummy = document.createElement("textarea");
+    // to avoid breaking orgain page when copying more words
+    // cant copy when adding below this code
+    // dummy.style.display = 'none'
+    document.body.appendChild(dummy);
+    //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+    dummy.value = url;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+   }
 }
