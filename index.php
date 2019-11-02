@@ -21,6 +21,11 @@
 </head>
 
 <body>
+	<?php
+	require_once('classes/DataBaseHandler.php');
+	require_once('classes/DataBaseTest.php')
+	?>
+	
 	<!-- En el body va el contenido de la página -->
 	<div class="container">
 		<div class="text-center">
