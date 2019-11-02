@@ -23,7 +23,7 @@
 <body>
 	<?php
 	require_once('classes/DataBaseHandler.php');
-	require_once('classes/DataBaseTest.php')
+	require_once('includes/DataBaseTest.php')
 	?>
 	
 	<!-- En el body va el contenido de la página -->
