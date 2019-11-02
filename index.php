@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html>
-
 <head>
 	<!-- Titulo de la pagina -->
 	<title>Saddle Up</title>
@@ -10,53 +9,50 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<!-- Importar la funcionalidad de Bootstrap, que incluye popups, menus, etc. -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<!-- Importar js.cookie, una libreria para facilitar el manejo de cookies -->
-	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-
-	<style>
-		#img-caballo {
-			display: none;
-		}
-	</style>
 </head>
-
 <body>
-	<?php
-	require_once('classes/DataBaseHandler.php');
-	require_once('includes/DataBaseTest.php')
-	?>
-	
-	<!-- En el body va el contenido de la página -->
-	<div class="container">
-		<div class="text-center">
-			<h1>Saddle Up</h1>
-
-			<img id="img-caballo" src="img/Caballo_Rojo.png"> <!-- Esta imagen esta invisible. La necesito solo para tener la imagen disponible para dibujarla en el canvas -->
-			<canvas id="caballo" width="300" height="300"></canvas>
-			<br><br>
-
-			<a id="boton-carrera-actual" class="btn btn-primary" href="carreraActual.html">Carrera Actual</a>
-			<br><br>
-
-			<a class="btn btn-primary" href="crearCarrera.html">Crear Carrera</a>
-			<br><br>
-
-			<a class="btn btn-primary" href="tienda.html">Tienda</a>
+	<main class="container text-center">
+        <h1>Ingresar</h1>
+        <form class="inline-block" action="includes/login.inc.php" method="POST">
+        <div class="form-group">
+		    <label for="username">Usuario</label>
+		    <input class="form-control" type="text" name="username" required>
 		</div>
-	</div>
+		<div class="form-group">
+		    <label for="pwd">Contraseña</label>
+		    <input class="form-control" type="password" name="pwd" required>
+		</div>
+		<button class="nline-block button1 graybox" type="submit" name="submit" value="login">Log in</button>
+		</form>
+        <br>
+        <br>
+        <h1>Registrarse</h1>
+        <form action="includes/signup.inc.php" method="POST">
+          <div class="form-group">
+            <label for="username">Usuario</label>
+            <input type="text" class="form-control" name="username" placeholder="Usuario" required>
+          </div>
+          <div class="form-group">
+            <label for="pwd">Contraseña</label>
+            <input type="password" class="form-control" name="pwd" placeholder="*****" required>
+          </div>
+          <div class="form-group">
+            <label for="repeatedpwd">Repetir Contraseña</label>
+            <input type="password" class="form-control" name="repeatedpwd" placeholder="*****" required>
+          </div>
+          <button type="submit" class="btn btn-primary" name="submit" value="signin">Registrar</button>
+        </form>
+	</main>
 
-	<!-- Una vez que se carga todo el contenido, importar nuestro archivo de javascript para agregar nuestra funcionalidad -->
-	<script src="js/scriptPintarCaballo.js"></script>
-	<script src="js/scriptPrincipal.js"></script>
-</body>
+	<!-- Div de seguridad para poder esconder el watermark sin riesgo a esconder un div importante-->
+	<div style="display: hide"></div>
 
-</html>
-
-
-
-
-
-
-
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("div").last().hide(); //Hide water mark
+		});
+	</script>
 	
- 
+</body>
+</html>
