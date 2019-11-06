@@ -1,9 +1,15 @@
+<?php
+
+	session_start();
+	
+?>
+
 <!DOCTYPE HTML>
 <html>
 
 <head>
 	<!-- Titulo de la pagina -->
-	<title>Saddle Up</title>
+	<title>Saddle Up - Tienda </title>
 	<!-- Importar el estilo visual de Bootstrap, una libreria con estilos prearmados -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<!-- Importar JQuery, una libreria que facilita el manejo de la página y es necesario para la funcionalidad de bootstrap -->
@@ -24,34 +30,28 @@
 	<!-- En el body va el contenido de la página -->
 	<div class="container">
 		<div class="text-center">
-			<h1>Saddle Up</h1>
+			<h1>Tienda</h1>
 
 			<img id="img-caballo" src="img/Caballo_Rojo.png"> <!-- Esta imagen esta invisible. La necesito solo para tener la imagen disponible para dibujarla en el canvas -->
 			<canvas id="caballo" width="300" height="300"></canvas>
-			<br><br>
 
-			<a id="boton-carrera-actual" class="btn btn-primary" href="carreraActual.html">Carrera Actual</a>
-			<br><br>
+			<div id="container-botones"></div>
 
-			<a class="btn btn-primary" href="crearCarrera.html">Crear Carrera</a>
-			<br><br>
+			<h3>Tu dinero: $<span id="display-dinero">
+			    
+			</span></h3>
+			
+			<a id="boton-comprar" class="btn btn-success disabled">Comprar</a>
 
-			<a class="btn btn-primary" href="tienda.html">Tienda</a>
+			<br><br>
+			<a class="btn btn-primary" href="index.html">Volver</a>
 		</div>
 	</div>
 
 	<!-- Una vez que se carga todo el contenido, importar nuestro archivo de javascript para agregar nuestra funcionalidad -->
 	<script src="js/scriptPintarCaballo.js"></script>
-	<script src="js/scriptPrincipal.js"></script>
+	<script src="js/scriptTienda.js"></script>
+	
 </body>
 
 </html>
-
-
-
-
-
-
-
-	
- 
