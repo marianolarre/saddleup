@@ -1,0 +1,67 @@
+.Contenedor{
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: -35.48%;
+
+background: url('Planchas viejas.jpg');
+border: 3px solid #000000;
+border-radius: 21px;
+}
+
+.botón-tienda{
+
+position: absolute;
+width: 62.95px;
+height: 62.95px;
+left: 302.8px;
+top: 14px;
+
+background: url(shop.png);
+}
+
+.boton-crear-carrera{
+
+position: absolute;
+width: 62.95px;
+height: 62.95px;
+left: 229.85px;
+top: 14px;
+
+background: url(carrera.png);
+}
+
+.boton-home{
+
+position: absolute;
+width: 62.95px;
+height: 62.95px;
+left: 156.9px;
+top: 14px;
+
+background: url(home.png);
+}
+
+.botón-amigos{
+
+position: absolute;
+width: 62.95px;
+height: 62.95px;
+left: 83.95px;
+top: 15.05px;
+
+background: url(amigos.png);
+}
+
+.botón-trofeos{
+
+position: absolute;
+width: 62.95px;
+height: 62.95px;
+left: 11px;
+top: 14px;
+
+background: url(trofeo.png);
+}

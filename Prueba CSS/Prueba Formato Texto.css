@@ -1,0 +1,111 @@
+/* Color y precio (de TIENDA DE RAZAS)*/
+.Color-y-precio{
+position: absolute;
+left: 11%;
+right: 12%;
+top: 83.99%;
+bottom: 4.34%;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 21px;
+/* identical to box height */
+text-align: center;
+
+color: #000000;
+
+border-radius: 20px;
+}
+
+/* Crear (de CREAR CARRERA) */
+.Crear{
+position: absolute;
+width: 112px;
+height: 30px;
+left: 74px;
+top: 14px;
+
+font-family: PoetsenOne;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 48px;
+display: flex;
+align-items: center;
+
+color: #9EFF00;
+
+border: 3px solid #000000;
+border-radius: 10px;
+}
+
+/* Volver (de CREAR CARRERA)*/
+.Volver{
+position: absolute;
+width: 128px;
+height: 30px;
+left: 68px;
+top: 14px;
+
+font-family: PoetsenOne;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 48px;
+display: flex;
+align-items: center;
+
+color: #FF7663;
+
+border: 3px solid #000000;
+border-radius: 10px;
+}
+
+/* Crear Usuario (de REGISTRARSE)*/
+.Crear-Usuario{
+position: absolute;
+left: 15.47%;
+right: 15.73%;
+top: 10.96%;
+bottom: 84.11%;
+
+font-family: PoetsenOne;
+font-style: normal;
+font-weight: normal;
+font-size: 37px;
+line-height: 44px;
+
+color: #FADF52;
+
+border: 3px solid #000000;
+}
+
+/* Usuario (de INGRESAR)*/
+.Usuario{
+position: absolute;
+width: 175.77px;
+height: 30px;
+left: 82px;
+top: 339px;
+
+font-family: PoetsenOne;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 19px;
+/* or 63% */
+
+color: #000000;
+}
+
+
+/* Botón Ingresar (de LOG-IN)*/
+.Botón-Ingresar{
+position: absolute;
+width: 260px;
+height: 67px;
+left: 57px;
+top: 460px;
+}
